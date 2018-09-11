@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <title>Ultimate Trivia!</title>
+</head>
+
+  <body>
+
+    <div id="container">
+
+  	      <h1>Ultimate Triva Game!</h1>
+
+      <div id="subcontainer">
+
+        <div id="play-area">
+
+          <button class="btn" id="start">START</button>
+
+          <div id="score-div">
+
+              <div id="correct" class="counters">Correct: <span id="numCorrect">0</span></div>
+
+              <div id="incorrect" class="counters">Incorrect: <span id="numIncorrect">0</span></div>
+    
+              <div id="timer"></div>
+
+          </div>
+
+          <div id="qa-container">
+
+            <div id="questions"></div>
+
+            <div id="choices"></div>
+
+            <div id="game-over">GAME OVER</div>
+
+            <div id="btn-done"><button class="btn" id="done">DONE</button></div>
+
+            <div id="btn-restart"><button class="btn" id="restart">RESTART</button></div>
+
+          </div>
+            
+          <div id="correctAnswer"></div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 	
+	  <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+  </body>
+</html>
