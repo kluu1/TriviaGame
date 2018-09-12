@@ -14,7 +14,9 @@
 
     <div id="container">
 
-  	    <h1>Ultimate Triva Game!</h1>
+        <h1>JavaScript Triva Game!</h1>
+        
+        <h2>How well do you know JavaScript?</h2>
 
       <div id="subcontainer">
 
@@ -42,25 +44,29 @@
 
             <div id="choices">
 
-              <button class="btn" id="choice-A"></button>
+              <button class="btn choices" id="choice-A"></button>
 
-              <button class="btn" id="choice-B"></button>
+              <button class="btn choices" id="choice-B"></button>
 
-              <button class="btn" id="choice-C"></button>
+              <button class="btn choices" id="choice-C"></button>
 
-              <button class="btn" id="choice-D"></button>
+              <button class="btn choices" id="choice-D"></button>
 
             </div>
 
             <div id="game-over">GAME OVER</div>
 
-            <div id="btn-done"><button class="btn" id="done">DONE</button></div>
-
             <div id="btn-restart"><button class="btn" id="restart">RESTART</button></div>
 
           </div>
             
-          <div id="correctAnswer"></div>
+          <div id="correctAnswer"><h3>Yes! You are correct!</h3></div>
+
+          <div id="timesUp"><h3>Oh No! Time's Up!</h3></div>
+
+          <div id="incorrectAnswer"><h3>Sorry, you are incorrect!</h3></div>
+
+          <div id="displayAnswer"><h3>The correct answer is: <span id="displayTheAnswer"></span></h3></div>
 
         </div>
 

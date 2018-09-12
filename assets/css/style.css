@@ -27,7 +27,15 @@ h1 {
 }
 
 h3 {
-    margin: 5px 0px 5px 0px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+h2 {
+    font-size: 26px;
 }
 
 div {
@@ -60,8 +68,14 @@ div {
   }
 
 #score-div {
+    padding: 10px;
+    margin: 0 auto;
     margin-top: 40px;
     font-size: 24px;
+    background-color: #d1dde4;
+    width: 60%;
+    border: solid black 2px;
+    border-radius: 5px;
 }
 
 #qa-container {
@@ -97,13 +111,6 @@ div {
 
 .counters {
     font-weight: bold;
-}
-
-#correctAnswer {
-    margin-top: 30px;
-    font-size: 36px;
-    font-weight: bold;
-    color: #4CAF50;
 }
 
 #game-over {
