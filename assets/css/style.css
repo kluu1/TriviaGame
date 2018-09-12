@@ -1,11 +1,12 @@
 #container {
     width: 640px;
     margin: 0 auto;
-    margin-top: 5%;
+    margin-top: 50px;
     border: solid 2px black;
-    padding: 20px;
+    padding: 40px;
     text-align: center;
     background-color: #fff;
+    border-radius: 10px;
 }
 
 #start {
@@ -15,7 +16,8 @@
 
 body {
     font-family: 'Concert One', cursive;
-    background-image: url('../images/memphis-colorful.png')
+    background-image: url('../images/memphis-colorful.png');
+    font-weight: bold;
 }
 
 h1 {
@@ -42,7 +44,20 @@ div {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 0 5px #999;
 }
+
+.btn:hover {
+    background-color: #3e8e41
+}
+
+.btn:active {
+    background-color: #3e8e41;
+    box-shadow: 0 1px #666;
+    transform: translateY(4px);
+  }
 
 #score-div {
     margin-top: 40px;
@@ -50,13 +65,14 @@ div {
 }
 
 #qa-container {
-    font-family: Arial, Helvetica, sans-serif;
     margin: 0 auto;
     width: 60%;
 }
 
 #questions {
+    font-size: 20px;
     margin-top: 40px;
+    margin-bottom: 20px;
     text-align: left;
     font-weight: bold;
 }
@@ -64,9 +80,19 @@ div {
 #choices {
     text-align: left;
 }
+#choices .btn {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
 
 #btn-done {
-    text-align: left;
+    text-align: center;
+}
+
+#done {
+    background-color: #007bff;
 }
 
 .counters {

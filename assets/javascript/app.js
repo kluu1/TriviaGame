@@ -13,6 +13,10 @@ $( document ).ready(function() {
     var $gameOver = $('#game-over');
     var $correctAnswer = $('#correctAnswer');
     var $timer = $('#timer');  
+    var $choiceA = $('#choice-A');
+    var $choiceB = $('#choice-B');
+    var $choiceC = $('#choice-C');
+    var $choiceD = $('#choice-D');
 
     // Declare variables
     var correct = 0;
@@ -39,6 +43,7 @@ $( document ).ready(function() {
     // Hide elements at startup
     $correct.hide();
     $incorrect.hide();
+    $choices.hide();
     $done.hide();
     $restart.hide();
     $gameOver.hide();  
@@ -49,6 +54,7 @@ $( document ).ready(function() {
             $start.hide();
             $restart.hide();
             $gameOver.hide();
+            $choices.show();
             $correct.show();
             $incorrect.show();
             $done.show();
@@ -68,10 +74,15 @@ $( document ).ready(function() {
 
         $questions.html(questionsArr[questionNum].question);
 
-        // Loops through the array of choices and display it
-        for (i = 0; i < questionsArr[questionNum].choices.length; i++) {
-            $choices.append('<h3><input type="radio" name="question' + '-' + questionNum + '"value="' + questionsArr[questionNum].choices[i] + '">' + questionsArr[questionNum].choices[i] + '</h3>');
-        }
+        $choiceA.append(questionsArr[questionNum].choices[0]);
+        $choiceB.append(questionsArr[questionNum].choices[1]);
+        $choiceC.append(questionsArr[questionNum].choices[2]);
+        $choiceD.append(questionsArr[questionNum].choices[3]);
+
+        // // Loops through the array of choices and display it
+        // for (i = 0; i < questionsArr[questionNum].choices.length; i++) {
+        //     $choices.append('<h3><input type="radio" name="question' + '-' + questionNum + '"value="' + questionsArr[questionNum].choices[i] + '">' + questionsArr[questionNum].choices[i] + '</h3>');  
+        // }
 
         // Set and start timer
         seconds = 3;
@@ -111,13 +122,17 @@ $( document ).ready(function() {
 
     function clear() {
         $questions.empty();
-        $choices.empty();
+        $choiceA.empty();
+        $choiceB.empty();
+        $choiceC.empty();
+        $choiceD.empty();
         $correctAnswer.empty();
     }
 
     function endGame() {
         $timer.hide();
         $done.hide();
+        $choices.hide();
         $gameOver.show();
         $restart.show();
     }
@@ -131,6 +146,7 @@ $( document ).ready(function() {
         $start.hide();
         $restart.hide();
         $gameOver.hide();
+        $choices.show();
         $correct.show();
         $timer.show();
         $incorrect.show();
