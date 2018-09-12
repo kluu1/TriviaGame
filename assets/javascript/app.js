@@ -77,20 +77,23 @@ $( document ).ready(function() {
             }
         ];
 
-    // Hide elements at startup
-    $correct.hide();
-    $incorrect.hide();
-    $choices.hide();
-    $timesUp.hide();
-    $scoreDiv.hide();
-    $correctAnswer.hide();
-    $incorrectAnswer.hide();
-    $displayAnswer.hide();
-    $restart.hide();
-    $gameOver.hide(); 
-
+    // Hides elements at startup
+    function startUp (){
+        $correct.hide();
+        $incorrect.hide();
+        $choices.hide();
+        $timesUp.hide();
+        $scoreDiv.hide();
+        $correctAnswer.hide();
+        $incorrectAnswer.hide();
+        $displayAnswer.hide();
+        $restart.hide();
+        $gameOver.hide();
+        startGame(); 
+    }
+    
     // Start the game by starting event listners
-    function start() {
+    function startGame() {
         $start.on('click', function() {
             clickSound.play();
             $start.hide();
@@ -125,7 +128,7 @@ $( document ).ready(function() {
         $choiceD.append(questionsArr[questionNum].choices[3]);
 
         // Start the timer for current question
-        seconds = 1;
+        seconds = 15;
         $timer.html(seconds);
         qTimer = setInterval(countDown, 1000);
     }
@@ -238,6 +241,6 @@ $( document ).ready(function() {
     }
 
     // Starts the game
-    start();
+    startUp();
 
 });
