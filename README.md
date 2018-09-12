@@ -7,10 +7,6 @@ Play the game now: https://kluu1.github.io/TriviaGame/
 - The correct answer will be displayed if time is up or wrong answer is selected
 - At the end of the game, users will see a summary of correct and incorrect answers
 
-## Game design note:
-- The random number shown at the start of the game should be between 19 - 120
-- Each crystal should have a random hidden value between 1 - 12
-
 ## Technologies used
 - JavaScript
 - jQuery
