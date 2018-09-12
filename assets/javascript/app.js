@@ -1,30 +1,28 @@
 $( document ).ready(function() {
 
-    // get DOM elements
-    $questions = $('#questions');
-    $choices = $('#choices');
-    $panel = $('#play-area');
-    $correct = $('#correct');
-    $incorrect = $('#incorrect');
-    $numCorrect = $('#numCorrect');
-    $numIncorrect = $('#numIncorrect');
-    $done = $('#done');
-    $start = $('#start');
-    $restart = $('#restart');
-    $gameOver = $('#game-over');
-    $correctAnswer = $('#correctAnswer');
-    $timer = $('#timer');  
+    // Get DOM elements
+    var $questions = $('#questions-content');
+    var $choices = $('#choices');
+    var $correct = $('#correct');
+    var $incorrect = $('#incorrect');
+    var $numCorrect = $('#numCorrect');
+    var $numIncorrect = $('#numIncorrect');
+    var $done = $('#done');
+    var $start = $('#start');
+    var $restart = $('#restart');
+    var $gameOver = $('#game-over');
+    var $correctAnswer = $('#correctAnswer');
+    var $timer = $('#timer');  
 
-    // declare variables
+    // Declare variables
     var correct = 0;
     var incorrect = 0;
     var questionNum = 0;
     var seconds = 3;
-    var qTimer = 3;
-    var timesUpTimer = 3;
+    var qTimer;
    
-    // create an array of questions
-    var questions = [{
+    // Create an array of questions
+    var questionsArr = [{
                 question: "Who was the lead singer for Led Zeppelin?",
                 choices: ["Phil Collins", "Bon Scott", "Robert Plant", "Terry Reid"],
                 correctAnswer: "Robert Plant"
@@ -38,14 +36,14 @@ $( document ).ready(function() {
                 correctAnswer: "Roger Daltrey"
             }];
 
-    // hide elements at startup
+    // Hide elements at startup
     $correct.hide();
     $incorrect.hide();
     $done.hide();
     $restart.hide();
     $gameOver.hide();  
 
-    // start the game
+    // Start the game and start event listners
     function start() {
         $start.on('click', function() {
             $start.hide();
@@ -55,68 +53,66 @@ $( document ).ready(function() {
             $incorrect.show();
             $done.show();
             displayQuestions();
+        });
+        $done.on('click', function() {
+            clearInterval(qTimer);
+            game.check();
+        });
+        $restart.on('click', function(){
+            restartGame();
         }); 
     }
 
-    // display questions
-
+    // Display the question
     function displayQuestions() {
 
-        $questions.append('<h2>' + questions[questionNum].question + '</h2>');
+        $questions.html(questionsArr[questionNum].question);
 
-        // loops through the array of choices and display it with radio button
-        for (i = 0; i < questions[questionNum].choices.length; i++) {
-            $choices.append('<h3><input type="radio" name="question' + '-' + questionNum + '"value="' + questions[questionNum].choices[i] + '">' + questions[questionNum].choices[i] + '</h3>');
+        // Loops through the array of choices and display it
+        for (i = 0; i < questionsArr[questionNum].choices.length; i++) {
+            $choices.append('<h3><input type="radio" name="question' + '-' + questionNum + '"value="' + questionsArr[questionNum].choices[i] + '">' + questionsArr[questionNum].choices[i] + '</h3>');
         }
 
-        // reset and display timer
+        // Set and start timer
         seconds = 3;
         $timer.html(seconds);
         qTimer = setInterval(countDown, 1000);
 
-        // // setup event listener for done button
-        // $done.on('click', function() {
-        //     clearInterval(qTimer);
-        //     game.check();
-        // });
-
     }
 
-    // decrement timer
     function countDown() {
         seconds--;
         $timer.html(seconds);
 
-        if (seconds <=0) {
+        if (seconds <= 0) {
+            $correctAnswer.append('<h3>Oops.. Times up! <br> The answer is "' + questionsArr[questionNum].correctAnswer + '"</h3>');
             clearInterval(qTimer);
-            endOfTime();
+            incorrect++;
+            $numIncorrect.html(incorrect);
+            launchNextQuestion();
         }
     }
 
-    function endOfTime() {
-        $correctAnswer.append('<h3>Oops.. Times up! <br> The answer is "' + questions[questionNum].correctAnswer + '"</h3>');
-        incorrect++
-        $numIncorrect.html(incorrect);
+    function launchNextQuestion() {
         setTimeout(function() {
+            questionNum++;
             clear();
             nextQuestion();
         }, 3000);
     }
 
     function nextQuestion() {
-        questionNum++
-
-        if (questionNum != questions.length) {
-            displayQuestions();
-        } else {
+        if (questionNum === questionsArr.length) {
             endGame();
+        } else {
+            displayQuestions();
         }
     }
 
     function clear() {
         $questions.empty();
-        $correctAnswer.empty();
         $choices.empty();
+        $correctAnswer.empty();
     }
 
     function endGame() {
@@ -124,22 +120,14 @@ $( document ).ready(function() {
         $done.hide();
         $gameOver.show();
         $restart.show();
-        $restart.on('click', function(){
-            restartGame();
-        });
     }
 
     function restartGame() {
         correct = 0;
         incorrect = 0;
         questionNum = 0;
-        seconds = 3;
-        qTimer = 3;
-        timesUpTimer = 3;
-
         $numCorrect.html(correct);
         $numIncorrect.html(incorrect);
-
         $start.hide();
         $restart.hide();
         $gameOver.hide();
@@ -148,7 +136,6 @@ $( document ).ready(function() {
         $incorrect.show();
         $done.show();
         displayQuestions();
-
     }
 
     start();
