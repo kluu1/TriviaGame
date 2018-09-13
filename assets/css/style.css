@@ -101,6 +101,10 @@ div {
     margin-bottom: 10px;
 }
 
+#sorry {
+    color: red;
+}
+
 #btn-done {
     text-align: center;
 }

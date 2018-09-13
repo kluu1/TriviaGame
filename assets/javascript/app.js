@@ -32,6 +32,8 @@ $( document ).ready(function() {
     var $choiceC = $('#choice-C');
     var $choiceD = $('#choice-D');
     var $choice = $('.choices');
+    var $goodjob = $('#goodjob');
+    var $sorry = $('#sorry');
 
     // Create an array of questions
     var questionsArr = [{
@@ -77,7 +79,9 @@ $( document ).ready(function() {
             }
         ];
 
-    var displayCorrectArr = []
+    var displayCorrectArr = ['Yes! Good job!', 'BOOM! That\'s right!', 'That is correct!', 'You\'re a rockstar!', 'Right on!', 'Good job mate!']
+
+    var displayIncorrectArr = ['That\'s incorrect..', 'Oh no, that\'s not right!', 'Wrong answer!', 'Not quiet..', 'That\'s not right', 'Sorry, wrong answer']
 
     // Hides elements at startup
     function startUp (){
@@ -204,6 +208,7 @@ $( document ).ready(function() {
         correct++;
         $numCorrect.html(correct);
         $correctAnswer.show();
+        $goodjob.html(generateGoodJob);
         launchNextQuestion();
     }
 
@@ -212,9 +217,20 @@ $( document ).ready(function() {
         incorrect++;
         $numIncorrect.html(incorrect);
         $incorrectAnswer.show();
+        $sorry.html(generateSorry);
         $displayAnswer.show();
         $displayTheAnswer.html(questionsArr[questionNum].correctAnswer);
         launchNextQuestion();
+    }
+
+    // Generate random message when incorrect answer is selected
+    function generateSorry() {
+        return displayIncorrectArr[Math.floor(Math.random()*displayIncorrectArr.length)];
+    }
+
+    // Genereate random message when correct answer is selected
+    function generateGoodJob() {
+        return displayCorrectArr[Math.floor(Math.random()*displayCorrectArr.length)];
     }
 
     // Function to end the game
