@@ -1,7 +1,7 @@
 #container {
     width: 640px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 70px;
     border: solid 2px black;
     padding: 40px;
     text-align: center;
@@ -105,6 +105,10 @@ div {
     color: red;
 }
 
+#timesUp h3 {
+    color: red;
+}
+
 #btn-done {
     text-align: center;
 }
@@ -123,4 +127,18 @@ div {
     font-weight: bold;
     margin-bottom: 40px;
     color: red;
+}
+
+footer {
+	position: absolute;
+	height: 40px;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+    background-color: #4CAF50;
+    color: #fff;
+    font-weight: normal;
+	left: 0;
+	right: 0;
+	padding-top: 20px;
 }
