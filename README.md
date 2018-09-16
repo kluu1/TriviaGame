@@ -1,5 +1,5 @@
 # TriviaGame
-Play the game now: https://kluu1.github.io/TriviaGame/
+Live Demo: https://kluu1.github.io/TriviaGame/
 - This is a simple Trivia Game about JavaScript
 - Users will be presented one question and four answer choices to select from
 - Users have 15 seconds to answer each question, a timer is displayed to keep track of time
