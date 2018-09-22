@@ -74,8 +74,8 @@ $( document ).ready(function() {
                 correctAnswer: 'function myFunction()'
             }, {
                 question: 'How does a FOR loop start?',
-                choices: ['for i = 1 to 5', 'for (i = 0; i <= 5; i++)', 'for (i <= 5; i++)', 'for (i = 0; i <= 5)'],
-                correctAnswer: 'for (i = 0; i <= 5; i++)'
+                choices: ['for i = 1 to 5', 'for (var i = 0; i <= 5; i++)', 'for (var i <= 5; i++)', 'for (var i = 0; i <= 5)'],
+                correctAnswer: 'for (var i = 0; i <= 5; i++)'
             }
         ];
 
